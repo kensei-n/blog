@@ -53,6 +53,7 @@
 {{ end }}
 {{ if (eq .File.Dir "posts/") -}}
   <meta property="og:image" content="{{ path.Join "tcard" (print .File.BaseFileName ".png") | absURL }}">
+  <meta name="twitter:card" content="summary_large_image">
 {{ end -}}
 {{ hugo.Generator }}
 <meta name="msapplication-TileColor" content="{{ $.Scratch.Get "themeTitleColor" | default "#fff" }}">
