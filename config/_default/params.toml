@@ -72,9 +72,9 @@ enableSidebarPostsByOrder = false # another lists in the sidebar
 
 # footer
 showPoweredBy = true # show footer text: Powered by Hugo and Zzo theme
-showFeedLinks = true # RSS Feed 
+showFeedLinks = false # RSS Feed 
 showSocialLinks = true # email, facebook, twitter ...
-enableLangChange = true # show button at bottom left of footer.
+enableLangChange = false # show button at bottom left of footer.
 
 # service
 googleTagManager = "" # GTM-XXXXXX
@@ -140,7 +140,7 @@ commento = false
   twitter = "https://twitter.com/sanpo_shiho"
   github = "https://github.com/sanposhiho"
   stack-overflow = ""
-  instagram = ""
+  instagram = "https://www.instagram.com/kensei_nkd/"
   google-plus = ""
   youtube = ""
   medium = ""
@@ -175,10 +175,10 @@ commento = false
   bitcoin = "" # example path: images/donation/bitcoin-code-image.png
 
 [copyrightOptions]
-  enableCopyrightLink = false # if set, you can add copyright link
-  copyrightLink = ""
+  enableCopyrightLink = true # if set, you can add copyright link
+  copyrightLink = "https://github.com/sanposhiho"
   copyrightLinkImage = ""
-  copyrightLinkText = ""
+  copyrightLinkText = " sanposhiho"
 
 # possible share name: "facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line", "whatsapp", "telegram"
 [[share]]
