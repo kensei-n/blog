@@ -26,8 +26,9 @@
       }
     },
     "ja-technical-writing/ja-no-mixed-period": {
-      "allowPeriodMarks": [":"],
+      "allowPeriodMarks": [":","、"],
+      "allowEmojiAtEnd": true,
     },
-    "ja-technical-writing/sentence-length": false //100文字数制限の無効化
+    "ja-technical-writing/sentence-length": false
   }
 }
