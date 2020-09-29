@@ -29,6 +29,7 @@
       "allowPeriodMarks": [":","、"],
       "allowEmojiAtEnd": true,
     },
-    "ja-technical-writing/sentence-length": false
+    "ja-technical-writing/sentence-length": false,
+    "ja-technical-writing/ja-no-successive-word": false
   }
 }

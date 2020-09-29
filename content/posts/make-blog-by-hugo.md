@@ -24,16 +24,16 @@ categories:
 - 技術系: Qiita
 - インターン記: はてなブログ
 
-という使い分けをしていましたが、色々思うところがあり、乗り換えたいと前々から思っていました。
+という使い分けをしていましたが、それぞれ以下の理由などから、乗り換えたいと前々から考えていました。
 
 #### Qiita
 
-- コミュニティが盛り下がってきている気がする(トレンドのLGTMの数を見て明らかに一時期よりも少ない数の記事のものが上がるようになっている)
+- コミュニティが盛り下がってきている気がする(トレンドの LGTM の数を見て明らかに一時期よりも少ない数の記事のものが上がるようになっている)
 
 #### はてなブログ
 
 - 文字数がすごく多くなってくると保存 and プレビューに時間がかかる
-- というかそもそもプレビューで画面を切り替えないといけないのがちょいめんどくさい(Qiitaみたいに隣に置いておいてくれればいいのに)
+- というかそもそもプレビューで画面を切り替えないといけないのがちょいめんどくさい(Qiita みたいに隣に置いておいてくれればいいのに)
 
 あたりです。
 
@@ -41,33 +41,36 @@ categories:
 
 ## Hugoで作る自作ブログ
 
-このブログはHugoで作成されています。リポジトリは↓です。
+このブログは Hugo で作成されています。リポジトリは↓です。
 
 [![sanposhiho/blog - GitHub](https://gh-card.dev/repos/sanposhiho/blog.svg)](https://github.com/sanposhiho/blog)
 
 僕はフロントエンドも💩ですしデザインセンスも💩なので、[Hugoのテーマ](https://themes.gohugo.io/)の中から良さげのものをそのまま拝借しました。
 
-Netlifyから配信しているので、記事を書いてpushすれば更新されるという楽々仕様です。
+Netlify から配信しているので、**記事を書いて push すれば更新される**という楽々仕様です。
 
-ついでにムームードメインで念願(?)の`sanposhiho.com`を取得しました。
+ついでにムームードメインで念願(？)の `sanposhiho.com` を取得しました。
 
 ### OGP生成
 
-OGPの生成には[Ladicle/tcardgen](https://github.com/Ladicle/tcardgen)を使用しています。
+OGP の生成には[Ladicle/tcardgen](https://github.com/Ladicle/tcardgen)を使用しています。
 
 [![Ladicle/tcardgen - GitHub](https://gh-card.dev/repos/Ladicle/tcardgen.svg)](https://github.com/Ladicle/tcardgen)
 
-これを用いて以下のコマンドをデプロイ前に打ってOGPを生成しています。
+これを用いて以下のコマンドをデプロイ前に打って OGP を生成しています。
 
 ```shell
 git diff --name-only HEAD\^ content/posts  |\
 xargs tcardgen -o static/tcard -f assets/fonts/kinto-sans -t assets/ogp_template.png
 ```
 
-便利ですね〜
+これによってその時に commit した記事の OGP のみが生成されます。
+便利ですね〜✨
+
+また、テーマの `partials/head/meta.html` を上書きして、生成される画像を OGP として認識するように設定する必要があります。
 
 ## 終わりに
 
-これを機にQiitaとはてなブログは引退します。これまでそちらを読んでくださっていた方ありがとうございました🙏
+これを機に Qiita とはてなブログは引退します。これまでそちらを読んでくださっていた方ありがとうございました。
 
-やっと自作ブログライフが始められてすごく清々しい気分です。Hugoで作るとものの数時間で作成が終わるので皆さんもどうでしょうか？
+やっと自作ブログライフが始められてすごく清々しい気分です。Hugo で作ると**ものの数時間**で作成が終わるので皆さんもどうでしょうか？
