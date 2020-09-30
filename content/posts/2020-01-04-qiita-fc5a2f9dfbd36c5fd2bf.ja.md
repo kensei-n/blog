@@ -1,6 +1,6 @@
 ---
 title: "HackerRankがElixirに対応しているらしいのでやってみる"
-date:  "2020-01-04"
+date:  "2020-01-04T15:04:05+07:00"
 author:
   - "さんぽし"
 description: "HackerRankがElixirに対応しているらしいのでやってみる"

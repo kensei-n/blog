@@ -1,6 +1,6 @@
 ---
 title: "【Hack the Box write-up】Mirai"
-date:  "2020-06-13"
+date:  "2020-06-13T15:04:05+07:00"
 author:
   - "さんぽし"
 description: "【Hack the Box write-up】Mirai"
