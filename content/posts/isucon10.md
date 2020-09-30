@@ -111,7 +111,7 @@ App 側の改善に一旦回ることにして、buyChair が 1 回 select し�
 
 また、ベンチの結果でずっとなぞって検索でタイムアウトが出ていたので、とさくんが修正を加えてくれました
 
-[Feat azoote / GitHub](https://github.com/masibw/isucon10_q/pull/6)
+[Feat/nazoote / GitHub](https://github.com/masibw/isucon10_q/pull/6)
 
 これでベンチ時のタイムアウトがはがせました（が点数に影響はなく🤔となっていました
 
@@ -197,4 +197,3 @@ DB の CPU が張り付き問題に対して以下の案が出ました
 
 運営のみなさんもお疲れ様でした！！
 
- 

@@ -30,7 +30,7 @@ categories:
 
 ```
 kali@kali:~$ nmap -sV -sC 10.10.10.48
-Starting Nmap 7.80 ( https:/ map.org ) at 2020-06-12 21:13 EDT
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-12 21:13 EDT
 Nmap scan report for 10.10.10.48
 Host is up (0.24s latency).
 Not shown: 997 closed ports
@@ -49,7 +49,7 @@ PORT   STATE SERVICE VERSION
 |_http-title: Site doesn't have a title (text/html; charset=UTF-8).
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-Service detection performed. Please report any incorrect results at https:/ map.org/submit/ .
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 73.16 seconds
 
 ```
@@ -112,7 +112,7 @@ Mirai という IoT 機器に感染するマルウェアがあったっぽいで
 kali@kali:~$ ssh pi@10.10.10.48
 The authenticity of host '10.10.10.48 (10.10.10.48)' can't be established.
 ECDSA key fingerprint is SHA256:UkDz3Z1kWt2O5g2GRlullQ3UY/cVIx/oXtiqLPXiXMY.
-Are you sure you want to continue connecting (yes o/[fingerprint])? yes
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '10.10.10.48' (ECDSA) to the list of known hosts.
 pi@10.10.10.48's password: 
 Permission denied, please try again.
@@ -185,7 +185,7 @@ cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpu
 cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
 cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
 cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
-cgroup on /sys/fs/cgroup et_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
 cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
 cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
 systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=22,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
@@ -242,4 +242,3 @@ Do you know if there is any way to get them back?
 
 でした。なんか Pi-hole とか dnsmasq とかに良さげな脆弱性(?)がいくつかあってそっちに気を取られちゃってました…
 
- 
