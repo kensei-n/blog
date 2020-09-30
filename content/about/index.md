@@ -7,54 +7,96 @@ date = "2020-09-28"
 
 # Kensei Nakada
 
-> Welcome to My Great Resume :)
-I'm a web developer, also a student at Kyoto University ⛩
+**Welcome to My Great Resume :)
+I'm a web developer, also a student at Kyoto University ⛩**
 
-# Experience
+---
+
+# Work Experience
 
 ## MOTEX Inc.
 
-Web Developer *– 2019/04 - 2020/04*
+### Web Developer
+*2019/04 - 2020/04*
 
-developed web applications using Elixir, Phoenix, React.
+- Elixir / Phoenixを用いたWebアプリケーションの開発
 
-→ [BlogReport](/posts/long-internship-experience/)
+#### 使用技術
+
+- Elixir / Phoenix
+- React / Redux
+
+#### 関連記事
+
+- [1年間の長期インターンシップで僕は何を学んだか](/posts/long-internship-experience/)
 
 ## mixi, Inc.
 
-Infra Engineer *– 2020/03 - 2020/04*
+### Infra Engineer
+ *2020/03 - 2020/04*
 
-developed a automated deployment system using CircleCI, Kubernetes, Docker, EKS...etc
+- PRを投げた際に自動でEKS上に環境が作成され、特定のURLによってアクセスできるような開発環境の開発
 
-→ [BlogReport](/posts/mixi-spring-internship-2020/)
+#### 使用技術
 
-Web Engineer *– 2020/08 (1 month)*
+- Docker
+- Kubernetes
+- EKS / ECS
+- CircleCI
 
-developed a data management tool for machine learning.
+#### 関連記事
 
-→ [BlogReport](/posts/mixi-summer-internship-2020/)
+- [Dive into mixi GROUP 2020 (春) に参加してきた](/posts/mixi-spring-internship-2020/)
+- [ブランチのpushで環境を動的に作成する開発環境を作った話](/posts/2020-04-13-qiita-c2ca5ebc56ade9b79b33/)
+
+
+### Web Engineer
+*2020/08 (1 month)*
+
+- 機械学習周りのデータ/ラベルの管理を行うアプリケーションの開発
+- データ前処理の自動化
+
+#### 使用技術
+
+- Go
+- Vue / TypeScript
+- Cloud Run
+
+#### 関連記事
+
+- [mixiの夏インターンに参加してフルスタックエンジニア()をしてきた](/posts/mixi-summer-internship-2020/)
 
 ## Akatsuki Inc.
 
-Infra Engineer *– 2020/09 (1 month)*
+### Infra Engineer
+*2020/09 (1 month)*
 
-developed a log system 
+- ログ配信フローの改善/開発
+- 検証環境の開発
+
+#### 使用技術
+
+- Ruby on Rails
+- fluentd
+- Athena
+- Redash
+
+#### 関連記事
+
+- comming soon...
 
 ---
 
 # 👟 Internship
 
-#### mixi Bug Shooting Challenge #4
+**mixi Bug Shooting Challenge #4**
+→ [mixiのBug Shooting Challenge #4に参加してきた](/posts/mixi-bug-shooting/)
 
-→ [BlogReport](/posts/mixi-bug-shooting/)
+**CyberAgent 2days Engineer Internshi**p
+→ [CyberAgentの2daysインターンでパフォーマンスチューニングを完全に理解した](/posts/ca-serverside-internship2020/)
 
-#### CyberAgent 2days Engineer Internship
-
-→ [BlogReport](/posts/ca-serverside-internship2020/)
-
-#### Mercari Online Summer Internship for Gophers 2020
-
-→ [BlogReport](/posts/mercari-summer-intenship-2020/)
+**Mercari Online Summer Internship for Gophers 2020**
+→ [メルカリのインターンに参加して静的解析をゴッツリ学んできた](/posts/mercari-summer-intenship-2020/)
 
 ---
 
@@ -62,13 +104,21 @@ developed a log system
 
 ### Relaym
 
-This is an application that allows multiple people to control a single Spotify device.
-- When driving with multiple people, you can connect one device to the audio and control the songs played by everyone.
-- Let others decide on your work music from SNS.
+Spotifyの楽曲を1つのスピーカーで楽しめるWebアプリケーションです。
+**[技育展2020](https://talent.supporterz.jp/geekten/2020/)にて「Webアプリ」部門で最優秀賞を獲得しました**
 
-**Awarded first prize 👑 in the web application category of [技育展](https://talent.supporterz.jp/geekten/2020/)**
-→ [Relaym](https://relaym.camph.net/)
-→ [Source Code](https://github.com/camphor-/relaym-server)
+- 複数人でのドライブ、勉強会などの際に1つのSpotifyオーディオを複数人で同時に操作できます
+- SNS上などで不特定多数の人から自分のSpotifyに対して曲の追加をお願いすることができます
+
+#### 関連URL
+
+- [relaym](https://relaym.camph.net/)
+- [camphor- / relaym-server](https://github.com/camphor-/relaym-server)
+- [camphor- / relaym-client](https://github.com/camphor-/relaym-client)
+
+#### 関連記事
+
+- [Relaymを出展して技育展「Webアプリ」部門で優勝してきた](/posts/relaym-win-giikuten/)
 
 ---
 
@@ -76,18 +126,20 @@ This is an application that allows multiple people to control a single Spotify d
 
 ### 🧪 Elixir / 🦅 Phoenix ⭐️⭐️
 
-Falling in love with a beautiful language, Elixir.  I've worked with it for over one year and made a few contributions to Elixir and Phoenix.
+- 長期インターンシップでの1年間の使用経験があります
+- Elixir / Phoenixに対するコントリビュートの経験があります
+- [Elixirに関連する記事](/tags/elixir/)もいくつか書いてます
 
 ### 🧸 Golang ⭐️⭐️
 
-Developed the awesome application called Relaym with Golang. I also develop some static analyzers for Golang.
+- インターンなどでの使用経験があります
+- 幾つかの[静的解析ツール](/showcase/tools/)の開発を行いました
 
 ### 🐉 Penetration Testing ⭐️
 
-Rooted over 40 machines and have a Hacker title on Hack the Box. I published over 40 write-ups
-→ [Profile](https://www.hackthebox.eu/profile/247307)
-→ [CheatSheet](https://github.com/sanposhiho/MY_CHEAT_SHEET)
-→ [write-ups](/tags/writeup/)
+- Hack the Boxにおいて40個以上のマシンを攻略済み(rooted)で、ランクはHackerです →[Profile](https://www.hackthebox.eu/profile/247307)
+- 殆どのマシンで[writeup](/tags/writeup/)も書いてます
+- [CheatSheet](https://github.com/sanposhiho/MY_CHEAT_SHEET)も書いてます
 
 ### Python, Ruby (on Rails) ⭐️
 
