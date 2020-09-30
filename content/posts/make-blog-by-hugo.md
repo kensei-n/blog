@@ -8,7 +8,7 @@ author:
 tags:
  - "BlogDev"
 categories:
- - "developments"
+ - "development"
 ---
 
 ## はじめに
@@ -19,6 +19,7 @@ categories:
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">僕も可愛い自作ブログが欲しい…</p>&mdash; さんぽし (@sanpo_shiho) <a href="https://twitter.com/sanpo_shiho/status/1310500432070864896?ref_src=twsrc%5Etfw">September 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 このブログ、結構可愛くないですか？？かなり気に入っています。
+上の水滴マークからテーマも変更できるので試してみてください。
 
 これまで僕は、
 - 技術系: Qiita
@@ -68,6 +69,14 @@ xargs tcardgen -o static/tcard -f assets/fonts/kinto-sans -t assets/ogp_template
 便利ですね〜✨
 
 また、テーマの `partials/head/meta.html` を上書きして、生成される画像を OGP として認識するように設定する必要があります。
+
+## 乗り換えにあたって
+
+はてなブログからはすごく頑張って記事をコピペしてきました。
+
+Qiita からの以降には以下の[qiitaexporter](https://github.com/tenntenn/qiitaexporter)を使用しました。
+
+[![tenntenn/qiitaexporter - GitHub](https://gh-card.dev/repos/tenntenn/qiitaexporter.svg)](https://github.com/tenntenn/qiitaexporter)
 
 ## 終わりに
 

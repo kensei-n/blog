@@ -26,6 +26,7 @@
       }
     },
     "ja-technical-writing/ja-no-mixed-period": {
+      "periodMark": "。",
       "allowPeriodMarks": [":","、"],
       "allowEmojiAtEnd": true,
     },
