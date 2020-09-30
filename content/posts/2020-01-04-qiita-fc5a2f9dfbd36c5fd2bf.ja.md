@@ -117,3 +117,4 @@ Solution.main()
 
 提出すると以下のようにテストが実行され、全てのテストを無事通過すれば合格となります。
 ![スクリーンショット 2020-01-04 18.05.54.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/417600/fde764c7-eabb-2fd9-1ded-543441915a24.png)
+ 

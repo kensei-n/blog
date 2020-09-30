@@ -218,3 +218,4 @@ SSA ではなく、AST の状態でソースコードを解析し、
 Twitter で[#mercari_intern](https://twitter.com/search?q=%23mercari_intern&src=typeahead_click)と検索すると他の人が何をやっていたかなどが出てくると思うのでそちらもチェックしてみてください！！
 
 メンターさんをはじめとするサポートしてくださった社員の皆さん、5 日間ありがとうございました！！！！！
+ 

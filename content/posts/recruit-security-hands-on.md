@@ -68,3 +68,4 @@ Rails の open 関数などの仕様を利用したものなどもあり、Rails
 3 時間の濃密な解説本当にお疲れ様でした & ありがとうございました！！
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">え、まじ？？？（イベントの事前課題をやってない顔 <a href="https://t.co/E0m8OcGI34">pic.twitter.com/E0m8OcGI34</a></p>&mdash; さんぽし (@sanpo_shiho) <a href="https://twitter.com/sanpo_shiho/status/1261178165268865024?ref_src=twsrc%5Etfw">May 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ 

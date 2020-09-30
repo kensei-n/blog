@@ -106,3 +106,4 @@ Docker、Kubernetes 何も知らない状態から本当に多くのことを学
 一ヶ月の間お世話になりました！！！
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">このロケーションで作業出来るの最高か？？ <a href="https://t.co/I7lBJnWwwH">pic.twitter.com/I7lBJnWwwH</a></p>&mdash; さんぽし (@sanpo_shiho) <a href="https://twitter.com/sanpo_shiho/status/1240830793032720384?ref_src=twsrc%5Etfw">March 20, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ 
