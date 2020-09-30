@@ -1,5 +1,5 @@
 ---
-title: "CyberAgentの2daysインターンに参加してパフォーマンスチューニングを完全に理解した"
+title: "CyberAgentの2daysインターンでパフォーマンスチューニングを完全に理解した"
 date: 2020-06-07T22:37:54+09:00
 description: パフォーマンスチューニングなんて簡単じゃん？(←こいつは3ヶ月後のISUCON予選でボロボロに負けます)
 draft: false
