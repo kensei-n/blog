@@ -136,11 +136,11 @@ commento = false
 [socialOptions] # if set, social icons will show up.
   email = ""
   phone = ""
-  facebook = ""
+  facebook = "https://www.facebook.com/sanposhiho"
   twitter = "https://twitter.com/sanpo_shiho"
   github = "https://github.com/sanposhiho"
   stack-overflow = ""
-  instagram = "https://www.instagram.com/kensei_nkd/"
+  instagram = ""
   google-plus = ""
   youtube = ""
   medium = ""
