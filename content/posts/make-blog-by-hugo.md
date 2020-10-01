@@ -74,7 +74,7 @@ xargs tcardgen -o static/tcard -f assets/fonts/kinto-sans -t assets/ogp_template
 
 はてなブログからはすごく頑張って記事をコピペしてきました。
 
-Qiita からの以降には以下の[qiitaexporter](https://github.com/tenntenn/qiitaexporter)を使用しました。
+Qiita からの移行には[qiitaexporter](https://github.com/tenntenn/qiitaexporter)を使用しました。
 
 [![tenntenn/qiitaexporter - GitHub](https://gh-card.dev/repos/tenntenn/qiitaexporter.svg)](https://github.com/tenntenn/qiitaexporter)
 
