@@ -1,6 +1,7 @@
 {{ range .AlternativeOutputFormats }}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" title="{{ .Name }}" href="{{ .Permalink | safeURL }}">
 {{ end }}
+<script data-ad-client="ca-pub-4254217501666233" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="description" content="{{ $.Param "description" }}" />
 {{ with $.Params.keywords }}
 <meta name="keywords" content="{{ delimit $.Params.keywords "," }}">
