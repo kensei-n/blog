@@ -2,6 +2,8 @@
 
 素晴らしいデザインなことで有名なさんぽしのBlogのリポジトリ.
 
+https://sanposhiho.com/
+
 Hugo で生成した静的ファイルをNetlifyに載せている
 
 ## OGP生成
