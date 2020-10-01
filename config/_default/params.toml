@@ -23,7 +23,7 @@ minItemsToShowInTagCloud = 1 # Minimum items to show in tag cloud
 homeHeaderType = "text" # text, img, slide, typewriter
 
 # menu
-showMobileMenuTerms = ["tags", "categories", "series"]
+showMobileMenuTerms = ["tags", "categories"]
 
 # navbar
 enableThemeChange = true # site color theme
