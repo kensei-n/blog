@@ -6,8 +6,9 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "internship"
+ - "パフォーマンスチューニング"
 categories:
+ - "internship"
  - "experience"
 ---
 

@@ -6,8 +6,10 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "internship"
+ - "Ruby"
+ - "Rails"
 categories:
+ - "internship"
  - "experience"
 ---
 

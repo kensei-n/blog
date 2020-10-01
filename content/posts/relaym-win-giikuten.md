@@ -6,9 +6,10 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "event"
+ - "Go"
 categories:
  - "experience"
+ - "development"
 ---
 
 こんにちは

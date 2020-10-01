@@ -6,7 +6,7 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "BlogDev"
+ - "Hugo"
 categories:
  - "development"
 ---

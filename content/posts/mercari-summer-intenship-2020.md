@@ -6,9 +6,11 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "internship"
+ - "Go"
+ - "静的解析"
 categories:
  - "experience"
+ - "internship"
 ---
 
 こんばんわ

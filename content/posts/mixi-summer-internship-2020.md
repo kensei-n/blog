@@ -6,8 +6,11 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "internship"
+ - "Go"
+ - "Vue"
+ - "Cloud Run"
 categories:
+ - "internship"
  - "experience"
 ---
 

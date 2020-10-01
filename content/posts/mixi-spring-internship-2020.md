@@ -6,8 +6,12 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "internship"
+ - "Kubernetes"
+ - "Docker"
+ - "CircleCI"
+ - "CI/CD"
 categories:
+ - "internship"
  - "experience"
 ---
 

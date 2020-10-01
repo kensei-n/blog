@@ -6,8 +6,10 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "internship"
+ - "Elixir"
+ - "Phoenix"
 categories:
+ - "internship"
  - "experience"
 ---
 
