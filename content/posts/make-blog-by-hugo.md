@@ -18,9 +18,6 @@ categories:
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">僕も可愛い自作ブログが欲しい…</p>&mdash; さんぽし (@sanpo_shiho) <a href="https://twitter.com/sanpo_shiho/status/1310500432070864896?ref_src=twsrc%5Etfw">September 28, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-このブログ、結構可愛くないですか？？かなり気に入っています。
-上の水滴マークからテーマも色々変更できるので試してみてください。
-
 これまで僕は、
 - 技術系: Qiita
 - インターン記: はてなブログ
@@ -29,7 +26,7 @@ categories:
 
 #### Qiita
 
-- コミュニティが盛り下がってきている気がする(トレンドの LGTM の数を見て明らかに一時期よりも少ない数の記事のものが上がるようになっている)
+- コミュニティが盛り下がってきている気がする(個人的感覚)(トレンドの LGTM の数を見て明らかに一時期よりも少ない数の記事のものが上がるようになっている)
 
 #### はてなブログ
 
@@ -47,6 +44,10 @@ categories:
 [![sanposhiho/blog - GitHub](https://gh-card.dev/repos/sanposhiho/blog.svg)](https://github.com/sanposhiho/blog)
 
 僕はフロントエンドも💩ですしデザインセンスも💩なので、[Hugoのテーマ](https://themes.gohugo.io/)の中から良さげのものをそのまま拝借しました。
+
+このテーマ、結構可愛くないですか？？かなり気に入っています。
+
+上の水滴マークからテーマも色々変更できるので試してみてください。
 
 Netlify から配信しているので、**記事を書いて push すれば更新される**という楽々仕様です。
 
