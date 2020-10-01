@@ -6,7 +6,6 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "penetration testing"
  - "TryHackMe"
 categories:
  - "security"

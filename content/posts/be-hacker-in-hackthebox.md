@@ -6,7 +6,6 @@ draft: false
 author:
  - "さんぽし"
 tags:
- - "penetration testing"
  - "Hack the Box"
 categories:
  - "security"
