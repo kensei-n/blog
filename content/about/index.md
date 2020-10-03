@@ -1,9 +1,9 @@
-+++
-title = "About"
-description = "Kensei Nakada's profile"
-type = "about"
-date = "2020-09-28"
-+++
+---
+title: "About"
+description: "Kensei Nakada's profile"
+type: "about"
+date: "2020-09-28"
+---
 
 # Kensei Nakada
 
