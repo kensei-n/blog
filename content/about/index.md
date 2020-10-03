@@ -12,11 +12,11 @@ I'm a web developer, also a student at Kyoto University ⛩**
 
 ---
 
-# Work Experience
+# 👩🏻‍💻 Work Experience
 
 ## MOTEX Inc.
 
-### Web Developer
+### Web Engineer
 *2019/04 - 2020/04*
 
 - Elixir / Phoenixを用いたWebアプリケーションの開発
@@ -35,7 +35,7 @@ I'm a web developer, also a student at Kyoto University ⛩**
 ### Infra Engineer
  *2020/03 - 2020/04*
 
-- PRを投げた際に自動でEKS上に環境が作成され、特定のURLによってアクセスできるような開発環境の開発
+- PRを投げた際に自動でEKS上に検証環境が作成され、特定のURLによってその環境にアクセスできるような環境の開発
 
 #### 使用技術
 
@@ -53,8 +53,8 @@ I'm a web developer, also a student at Kyoto University ⛩**
 ### Web Engineer
 *2020/08 (1 month)*
 
-- 機械学習周りのデータ/ラベルの管理を行うアプリケーションの開発
-- データ前処理の自動化
+- 機械学習周りのデータ/ラベルの管理を行うアプリケーション全般の開発
+- データ前処理の自動化フローの開発
 
 #### 使用技術
 
