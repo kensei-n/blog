@@ -188,8 +188,8 @@ commento = false
   username = ""
 
 [[footerLinks]]
-  name = ""
-  link = ""
+  name = "privacy policy"
+  link = "/privacy-policy"
 [[footerLinks]]
   name = ""
   link = ""
