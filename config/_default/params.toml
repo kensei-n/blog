@@ -8,10 +8,10 @@ useFaviconGenerator = true # https://www.favicon-generator.org/
 languagedir = "ltr" # ltr / rtl
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
-notAllowedTypesInHome = ["contact", "talks", "about", "showcase"] # not allowed page types in home page. type can be set in front matter or default to folder name.
-notAllowedTypesInHomeSidebar = ["about", "archive", "showcase"] # not allowed page types in home page sidebar(recent post titles).
+notAllowedTypesInHome = ["contact", "talks", "about", "showcase", "others"] # not allowed page types in home page. type can be set in front matter or default to folder name.
+notAllowedTypesInHomeSidebar = ["about", "archive", "showcase", "others"] # not allowed page types in home page sidebar(recent post titles).
 notAllowedTypesInArchive = ["about", "talks", "showcase", "others"] # not allowed page types in archive page
-notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery"]
+notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery", "others"]
 enablePinnedPosts = true # show pinned posts first in the main view
 
 viewportSize = "normal" # widest, wider, wide, normal, narrow
