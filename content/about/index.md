@@ -10,6 +10,12 @@ date: "2020-09-28"
 **Welcome to My Great Resume :)
 I'm a web developer, also a student at Kyoto University ⛩**
 
+## 🔗 Personal Links
+
+Twitter : [@sanpo_shiho](https://twitter.com/sanpo_shiho)
+GitHub : [@sanposhiho](https://github.com/sanposhiho)
+Hack the Box : [@sanposhiho](https://www.hackthebox.eu/profile/247307)
+
 ---
 
 # 👩🏻‍💻 Work Experience
