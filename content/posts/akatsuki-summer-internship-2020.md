@@ -1,5 +1,5 @@
 ---
-title: "Akatsukiの夏インターンに参加してRailsのログ配信改善に取り組んだ話"
+title: "アカツキの夏インターンに参加してRailsのログ配信改善に取り組んだ話"
 date: 2020-10-04T22:37:54+09:00
 description: "Akatsuki Summer Internship 2020に参加してきました"
 draft: false
