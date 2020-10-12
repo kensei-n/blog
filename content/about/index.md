@@ -20,7 +20,7 @@ Hack the Box : [@sanposhiho](https://www.hackthebox.eu/profile/247307)
 
 # 👩🏻‍💻 Work Experience
 
-## MOTEX Inc.
+## MOTEX
 
 ### Web Engineer
 *2019/04 - 2020/04*
@@ -36,7 +36,7 @@ Hack the Box : [@sanposhiho](https://www.hackthebox.eu/profile/247307)
 
 - [1年間の長期インターンシップで僕は何を学んだか](/posts/long-internship-experience/)
 
-## mixi, Inc.
+## mixi
 
 ### Infra Engineer
  *2020/03 - 2020/04*
@@ -72,7 +72,7 @@ Hack the Box : [@sanposhiho](https://www.hackthebox.eu/profile/247307)
 
 - [mixiの夏インターンに参加してフルスタックエンジニア()をしてきた](/posts/mixi-summer-internship-2020/)
 
-## Akatsuki Inc.
+## Akatsuki
 
 ### Infra Engineer
 *2020/09 (1 month)*
@@ -90,6 +90,14 @@ Hack the Box : [@sanposhiho](https://www.hackthebox.eu/profile/247307)
 #### 関連記事
 
 - comming soon...
+
+## Recruit
+
+### Infra Engineer
+*2020/10 - 2020/11*
+
+comming soon ...
+
 
 ---
 
