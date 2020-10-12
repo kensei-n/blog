@@ -89,7 +89,7 @@ Hack the Box : [@sanposhiho](https://www.hackthebox.eu/profile/247307)
 
 #### 関連記事
 
-- comming soon...
+- [Akatsukiの夏インターンに参加してRailsのログ配信改善に取り組んだ話](/posts/akatsuki-summer-internship-2020/)
 
 ## Recruit
 
