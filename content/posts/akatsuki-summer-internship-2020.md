@@ -24,7 +24,7 @@ categories:
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">3週間お世話になりますっ <a href="https://t.co/vGG7733ABi">pic.twitter.com/vGG7733ABi</a></p>&mdash; さんぽし (@sanpo_shiho) <a href="https://twitter.com/sanpo_shiho/status/1302777972961677312?ref_src=twsrc%5Etfw">September 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-# インターン業務内容
+## インターン業務内容
 
 今回のインターンでは「ログ配信周りの改善」を中心とする以下のタスクを行いました。
 
@@ -33,7 +33,7 @@ categories:
 - RedashにてAthenaからアクセスログの解析
 
 
-# 既存のログ配信環境に関して
+## 既存のログ配信環境に関して
 
 既存のログ配信の構成は以下のようになっていました
 
@@ -146,14 +146,14 @@ Redashはデータ視覚化を行うことのできるサービスでAthenaや B
 
 などのクエリを追加しました。
 
-# 苦労した点
-## fluentd分からん
+## 苦労した点
+### fluentd分からん
 
 頑張りました。
 
 割とシンプルなので助かりました
 
-## Rails分からん
+### Rails分からん
 
 Railsを扱った軽い経験は一応ありましたが、最終的に使用したActive Support::Notificationsは存在すらしらず、かなり試行錯誤していました。
 
@@ -167,7 +167,7 @@ Railsを扱った軽い経験は一応ありましたが、最終的に使用し
 　また、レスポンス内容は別で出力！とかにしても複数コンテナが書き込むログの中でどのリクエストとレスポンスが紐づくかわからなくなるのでそれも却下
 
 
-# 終わりに
+## 終わりに
 
 今回はシルバーウィークを挟んで3週間という期間でしたが、ログ周辺のシステムを広く触る経験ができたのはとても良い経験でした。ログ配信周りは今まで開発の経験も知見もなく、あまり個人開発では手が回らないような部分なのでとても貴重な経験になったと感じています。
 
