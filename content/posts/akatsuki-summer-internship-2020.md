@@ -19,6 +19,8 @@ categories:
 
 9/7 ~ 9/25の期間でアカツキの**Akatsuki Summer Internship 2020**に参加してきました
 
+この記事ではインターン中に取り組んだ内容について紹介したいと思います。
+
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">3週間お世話になりますっ <a href="https://t.co/vGG7733ABi">pic.twitter.com/vGG7733ABi</a></p>&mdash; さんぽし (@sanpo_shiho) <a href="https://twitter.com/sanpo_shiho/status/1302777972961677312?ref_src=twsrc%5Etfw">September 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
@@ -75,7 +77,7 @@ categories:
 
 ## アクセスログの配信方法の改善
 
-アクセスログの現状の配信方法は
+アクセスログの既存の配信方法は
 
 - アプリケーションコンテナがファイルにアクセスログを吐く
 - volumeを通してfluentdコンテナがtailする
@@ -94,7 +96,7 @@ categories:
 
 ![既存のログ配信環境](/images/posts/akatsuki-summer4.png)
 
-現状のアクセスログの出力にはlogrageを利用していました
+既存のアクセスログの出力にはlogrageを利用していました
 
 [![roidrage/lograge - GitHub](https://gh-card.dev/repos/roidrage/lograge.svg)](https://github.com/roidrage/lograge)
 
