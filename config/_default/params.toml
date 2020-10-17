@@ -191,5 +191,5 @@ commento = false
   name = "privacy policy"
   link = "/others/privacy-policy"
 [[footerLinks]]
-  name = ""
-  link = ""
+  name = "contact"
+  link = "https://twitter.com/sanpo_shiho"
