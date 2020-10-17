@@ -16,3 +16,9 @@ Hugo で生成した静的ファイルをNetlifyに載せている
 git diff --name-only HEAD\^ content/posts  |\
 xargs tcardgen -o static/tcard -f assets/fonts/kinto-sans -t assets/ogp_template.png -c config/config.yml
 ```
+
+Makefileに登録してるので以下でOK
+
+```
+$ make genimage
+```
