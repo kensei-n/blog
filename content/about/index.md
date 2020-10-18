@@ -14,7 +14,7 @@ I'm a web developer, also a student at Kyoto University ⛩**
 
 Twitter : [@sanpo_shiho](https://twitter.com/sanpo_shiho)
 GitHub : [@sanposhiho](https://github.com/sanposhiho)
-Hack the Box : [@sanposhiho](https://www.hackthebox.eu/profile/247307)
+Hack the Box : [@sanposhiho](https://app.hackthebox.eu/profile/247307)
 
 ---
 
