@@ -1,12 +1,12 @@
 ---
 title: "Elixir / PhoenixのリポジトリにGitHub Actiansを用いてlintとtestをかけたい"
 date: 2020-10-20T21:11:44+09:00
-description: Elixirの記事が少ないので自分のメモがてら残しておく
 draft: false
 author:
  - "さんぽし"
 tags:
  - "Elixir"
+ - "Phoenix"
 categories:
  - "development"
 ---
