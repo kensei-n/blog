@@ -2,7 +2,7 @@
 title: "Rustlerを用いてRustでErlangVM上で動作するWebアプリケーションを作成する"
 date: 2020-10-31T21:11:44+09:00
 description: 
-draft: false
+draft: true
 author:
  - "さんぽし"
 tags:
