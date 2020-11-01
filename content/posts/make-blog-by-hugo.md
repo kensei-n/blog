@@ -1,7 +1,6 @@
 ---
 title: "Hugoでさくっと自作ブログを作った"
 date: 2020-09-28T22:37:54+09:00
-description: Hugoでさくっと自作ブログを作ってはてなブログ&Qiitaから乗り換えた話
 draft: false
 author:
  - "さんぽし"

@@ -1,7 +1,6 @@
 ---
 title: "mixiの夏インターンに参加してフルスタックエンジニア()をしてきた"
 date: 2020-08-31T22:37:54+09:00
-description: Vue分からん芸人
 draft: false
 author:
  - "さんぽし"

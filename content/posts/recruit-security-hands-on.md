@@ -1,7 +1,6 @@
 ---
 title: "脆弱性を直して学ぶ！Webセキュリティハンズオン by Recruit に参加した"
 date: 2020-05-16T22:37:54+09:00
-description: Webセキュリティ難しい…
 draft: false
 author:
  - "さんぽし"

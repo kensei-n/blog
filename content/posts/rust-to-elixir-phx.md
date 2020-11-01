@@ -1,7 +1,6 @@
 ---
 title: "Rustlerを用いてRustでErlangVM上で動作するWebアプリケーションを作成する"
 date: 2020-10-31T21:11:44+09:00
-description: 
 draft: true
 author:
  - "さんぽし"
@@ -20,17 +19,14 @@ categories:
 - [Using Rust to Scale Elixir for 11 Million Concurrent Users](https://blog.discord.com/using-rust-to-scale-elixir-for-11-million-concurrent-users-c6f19fc029d3)
 - [Real time communication at scale with Elixir at Discord](https://elixir-lang.org/blog/2020/10/08/real-time-communication-at-scale-with-elixir-at-discord/)
 
-どちらもDiscordはElixirを使ってるよ〜という記事なのですが、中を読んでいくと「Rustlerを用いてErlangVMのNIFsを応用することで一部の処理をRustで書いている」とのことでした。
-
-今回のこの記事ではElixir
-
+どちらもDiscordはElixirを使ってるよ〜という記事なのですが、詳しく読んでいくと「**Rustler**を用いてErlangVMのNIFsを応用することで一部の処理をRustで書いている」とのことでした。
 
 RustlerはErlang NIFs(Native Implemented Functions)を利用してElixir(Erlang)の中でRustの関数をフックできるようにしたライブラリです。
 
 
 [![rusterlium/rustler - GitHub](https://gh-card.dev/repos/rusterlium/rustler.svg)](https://github.com/rusterlium/rustler)
 
->Rustler is a library for writing Erlang NIFs in safe Rust code. That means there should be no ways to crash the BEAM (Erlang VM). The library provides facilities for generating the boilerplate for interacting with the BEAM, handles encoding and decoding of Erlang terms, and catches rust panics before they unwind into C.
+> Rustler is a library for writing Erlang NIFs in safe Rust code. That means there should be no ways to crash the BEAM (Erlang VM). The library provides facilities for generating the boilerplate for interacting with the BEAM, handles encoding and decoding of Erlang terms, and catches rust panics before they unwind into C.
 
 すごく簡単にいうとElixirの中でRustの関数を呼べるよってことです。
 
@@ -41,14 +37,16 @@ RustlerはErlang NIFs(Native Implemented Functions)を利用してElixir(Erlang)
 
 NIFsは強力な反面ネイティブな関数がクラッシュした際にErlang VM自体に深刻な影響をもたらす可能性がありますが、そんなNIFsの安全性を高めつつ利用できるのがRustlerです。
 
-## Elixirの中でRustを呼べると何が嬉しいか
+## RustをErlangVM上で動作させると何が嬉しいか
 
-Rust側から見るとタイトルにもある通り、RustをErlangVM上で動作させることが一番の強みになります。
+Rust側から見るとErlangVMの恩恵を受けることができる点が一番大きなメリットです。
 
 > Elixirは、低レイテンシで分散型のフォールトトレラントシステムや、Webや組み込みシステムの領域で成功を収めている、Erlang VMを利用します。
 https://elixir-lang.jp/
 
-これらの強みをまるっといただくことができます。
+これらの強みをRustでまるっといただくことができます。
+
+## Elixirの中でRustを呼べると何が嬉しいか
 
 そしてElixir側から見たNifを利用してRustを使用するメリットとしては(これはNIFs自体のメリットとも言えますが)、実行速度の向上です。
 
@@ -73,18 +71,25 @@ ErlangVMのプロセスの実行はスケジューラーによって全て管理
 
 NIFsの「クラッシュした際にErlang VMに対する影響がやばい」という諸刃の剣の諸刃の部分(?)をRustのメモリ安全性を利用して、安全性を担保することができます。
 
-## 実際に使ってみる
+## 実際にRustlerを使ってみる
 
-NIFsを用いてElixirのコードに触れることなくRustのみを用いてWebアプリを立てられれば良いな〜と思っていたのですが、全く触れないというのは流石に無理でした。
-
-今回はものすごく簡単なAPIサーバーを作成してみます。
+Rustlerを実際に用いてみて開発の流れを確認してみましょう。今回は簡単なAPIサーバーを作成してみます。
 
 ElixirのデファクトなWebフレームワークであるPhoenixを利用します。
 
-ElixirやPhoenix自体のインストール方法は公式に説明を譲り、省略します。
+ElixirやPhoenix、Rust自体のインストール方法は公式に説明を譲り、省略します。
 
 [elixir - Install](https://elixir-lang.org/install.html)
 [Phoenix - Installation](https://hexdocs.pm/phoenix/installation.html)
+[Rust - Install Rust](https://www.rust-lang.org/tools/install)
+
+この記事の対象読者は全人類です。Elixir/Phoenixに精通していない人、Rust分からんって人にもわかるように割と一歩一歩解説していきます。
+また、筆者はRust歴0日なのでそもそもRust分からんの人間です。
+
+今回のソースコードは全て以下のリポジトリに置いてあります。
+
+[![sanposhiho/rust-to-elixir-phoenix-sample - GitHub](https://gh-card.dev/repos/sanposhiho/rust-to-elixir-phoenix-sample.svg)](https://github.com/sanposhiho/rust-to-elixir-phoenix-sample)
+
 
 ```
 $ mix phx.new rust_phx_sample --no-ecto
@@ -105,28 +110,328 @@ $ mix phx.server
 
 PhoenixはRails likeのMVCなフレームワークです。
 
-とりあえず以下のファイルを作成してjsonを返すpathを作成します
+とりあえずsampleとして簡単なjsonを返すpathを作成します
+
+以下のように`sample_controller.ex`と`sample_view.ex`を作成します
 
 ```lib/rust_phx_sample_web/controllers/sample_controller.ex
 defmodule RustPhxSampleWeb.SampleController do
   use RustPhxSampleWeb, :controller
 
   def sample(conn, _params) do
-    num = 1 + 2
-    params = %{number: num}
+    num = add(1, 2)
 
     render(conn, "sample.json", number: num)
   end
+
+  def add(num1, num2) do
+    num1 + num2
+  end
 end
+
 ```
 
 ```lib/rust_phx_sample_web/views/sample_view.ex
 defmodule RustPhxSampleWeb.SampleView do
   use RustPhxSampleWeb, :view
 
-  def render("sample.json", json = %{number: num}) do
-    IO.inspect json
+  def render("sample.json", %{number: num}) do
     %{number: num}
   end
 end
 ```
+
+`router.ex`を編集してroutingを追加します
+
+```lib/rust_phx_sample_web/router.ex
+  scope "/", RustPhxSampleWeb do
+    pipe_through :browser
+
+    get "/", PageController, :index
+    get "/sample", SampleController, :sample
+  end
+```
+
+これによって`/sample`にアクセスすると以下のように雑なAPiが作成できていることがわかります
+
+![json返している](/images/posts/router.png)
+
+ここまでで一旦雑なAPIサーバーを立てることができました
+
+### rustlerの導入
+
+`mix.exs`に`rustler`の依存を追加します
+
+```mix.exs
+  defp deps do
+    [
+      {:phoenix, "~> 1.5.6"},
+      {:phoenix_html, "~> 2.11"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_dashboard, "~> 0.3 or ~> 0.2.9"},
+      {:telemetry_metrics, "~> 0.4"},
+      {:telemetry_poller, "~> 0.4"},
+      {:gettext, "~> 0.11"},
+      {:jason, "~> 1.0"},
+      {:plug_cowboy, "~> 2.0"},
+      {:rustler, "~> 0.21.0"} #add
+    ]
+  end
+```
+
+```
+$ mix deps.get
+```
+
+これで`rustler`を導入できました
+
+`mix rustler.new`で新しいNIFs用のプロジェクトを作成します
+
+```
+$ mix rustler.new
+This is the name of the Elixir module the NIF module will be registered to.
+Module name > RustPhxSampleWeb.SampleController 
+This is the name used for the generated Rust crate. The default is most likely fine.
+Library name (rustphxsampleweb_samplecontroller) > 
+* creating native/rustphxsampleweb_samplecontroller/.cargo/config
+* creating native/rustphxsampleweb_samplecontroller/README.md
+* creating native/rustphxsampleweb_samplecontroller/Cargo.toml
+* creating native/rustphxsampleweb_samplecontroller/src/lib.rs
+Ready to go! See /Users/kenseinakada/workspace/rust_phx_sample/native/rustphxsampleweb_samplecontroller/README.md for further instructions.
+```
+
+作成されたRustのテンプレートファイルを覗いてみると以下のようになっています
+
+```native/rustphxsampleweb_samplecontroller/src/lib.rs
+use rustler::{Encoder, Env, Error, Term};
+
+mod atoms {
+    rustler_atoms! {
+        atom ok;
+        //atom error;
+        //atom __true__ = "true";
+        //atom __false__ = "false";
+    }
+}
+
+rustler::rustler_export_nifs! {
+    "Elixir.RustPhxSampleWeb.SampleController",
+    [
+        ("add", 2, add)
+    ],
+    None
+}
+
+fn add<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
+    let num1: i64 = args[0].decode()?;
+    let num2: i64 = args[1].decode()?;
+
+    Ok((atoms::ok(), num1 + num2).encode(env))
+}
+
+```
+
+Elixir側のaddと実装が合うように以下のように修正します
+
+```native/rustphxsampleweb_samplecontroller/src/lib.rs
+use rustler::{Encoder, Env, Error, Term};
+
+rustler::rustler_export_nifs! {
+    "Elixir.RustPhxSampleWeb.SampleController",
+    [
+        ("add", 2, add)
+    ],
+    None
+}
+
+fn add<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
+    let num1: i64 = args[0].decode()?;
+    let num2: i64 = args[1].decode()?;
+
+    Ok((num1 + num2).encode(env))
+}
+```
+
+Elixir側のaddでRustのaddを呼び出すように以下のように変更を加えます
+
+```lib/rust_phx_sample_web/controllers/sample_controller.ex
+defmodule RustPhxSampleWeb.SampleController do
+  use RustPhxSampleWeb, :controller
+  use Rustler, otp_app: :rust_phx_sample, crate: :rustphxsampleweb_samplecontroller
+
+  def sample(conn, _params) do
+    num = add(1, 2)
+
+    render(conn, "sample.json", number: num)
+  end
+
+  def add(_a, _b), do: exit(:nif_not_loaded)
+end
+```
+
+また、`mix.exs`を再び編集し、Elixirのコンパイル時にRustのコードも一緒にコンパイルされるように設定します
+
+```mix.exs
+  def project do
+    [
+      app: :rust_phx_sample,
+      version: "0.1.0",
+      elixir: "~> 1.7",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      compilers: [:phoenix, :gettext, :rustler] ++ Mix.compilers(), #rustlerの追加
+      rustler_crates: rustler_crates(), #追加
+      start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
+      deps: deps()
+    ]
+  end
+
+  defp rustler_crates() do
+    [rustphxsampleweb_samplecontroller: [
+      path: "native/rustphxsampleweb_samplecontroller",
+      mode: rustc_mode(Mix.env)
+    ]]
+  end
+
+  defp rustc_mode(:prod), do: :release
+  defp rustc_mode(_), do: :debug
+```
+
+これによってPhoenixのサーバーを立ち上げ直すことでRustのコンパイルも実行されます
+
+```
+$ mix phx.server
+```
+
+同様に`/sample`にアクセスすることで以下のように先ほどと同じ結果が帰ってきていることがわかります
+![json返している](/images/posts/router.png)
+
+これによってElixirのaddの関数をNIFに置き換えてRustのaddを代わりに実行することができました。
+
+## もう少し本格的なAPIサーバーを実装してみる
+
+ここまででRustlerの雰囲気は掴んでいただけたのではないでしょうか。
+
+**「いや足し算の関数置き換えただけでRustでWebアプリケーションって言えるんか」**
+
+そう言われると思ったので、そこでここからAPIサーバーが行うことの多いであろう、DBへのアクセスを絡めた処理を実際にRustで実装してみます
+
+先ほどと同様の手順で`user_controller.ex`、`user_view.ex`を作成し、`router.ex`にrouteを追加します
+
+```lib/rust_phx_sample_web/controllers/user_controller.ex
+defmodule RustPhxSampleWeb.UserController do
+  use RustPhxSampleWeb, :controller
+  use Rustler, otp_app: :rust_phx_sample, crate: :rustphxsampleweb_usercontroller
+
+  def create(conn, %{"user" => %{"name" => name, "age" => age}}) do
+    {:ok, {id, name, age}} = create_user(name, age)
+
+    user = %{
+      id: id,
+      name: name,
+      age: age,
+    }
+
+    render(conn, "user.json", user: user)
+  end
+
+  def create_user(_name, _age), do: exit(:nif_not_loaded)
+end
+```
+
+```lib/rust_phx_sample_web/views/user_view.ex
+defmodule RustPhxSampleWeb.UserView do
+  use RustPhxSampleWeb, :view
+
+  def render("user.json", %{user: user}) do
+    %{user: user}
+  end
+end
+```
+
+```lib/rust_phx_sample_web/router.ex
+  pipeline :browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    # plug :protect_from_forgery  # セキュリティ上ものすごく良くないがCSRFToken Errorを回避するのがめんどくさいので今回は無効化
+    plug :put_secure_browser_headers
+  end
+
+#..(中略)
+    post "/user", UserController, :create
+```
+
+同様の手順で新しいNIFs用のプロジェクトを作成します
+
+```
+$ mix rustler.new
+This is the name of the Elixir module the NIF module will be registered to.
+Module name > RustPhxSampleWeb.UserController
+This is the name used for the generated Rust crate. The default is most likely fine.
+Library name (rustphxsampleweb_usercontroller) >
+* creating native/rustphxsampleweb_usercontroller/.cargo/config
+* creating native/rustphxsampleweb_usercontroller/README.md
+* creating native/rustphxsampleweb_usercontroller/Cargo.toml
+* creating native/rustphxsampleweb_usercontroller/src/lib.rs
+Ready to go! See /Users/kenseinakada/workspace/rust_phx_sample/native/rustphxsampleweb_usercontroller/README.md for further instructions.
+```
+
+`mix.exs`にも作成しNIFs用のプロジェクトを登録します
+
+```mix.exs
+  defp rustler_crates() do
+    [rustphxsampleweb_samplecontroller: [
+      path: "native/rustphxsampleweb_samplecontroller",
+      mode: rustc_mode(Mix.env)
+    ],
+    rustphxsampleweb_usercontroller: [                   # add
+      path: "native/rustphxsampleweb_usercontroller",
+      mode: rustc_mode(Mix.env)
+    ]
+    ]
+  end
+```
+
+そして作成された`native/rustphxsampleweb_usercontroller/src/lib.rs`にDBにUserを格納する処理を書いていきます。
+
+DBクライアントライブラリには`Diesel`を使用しました。
+
+Rustの実際のコードは長いので載せませんが、以下に置いてあります。
+
+[sanposhiho/rust-to-elixir-phoenix-sample:native/rustphxsampleweb_usercontroller/src](https://github.com/sanposhiho/rust-to-elixir-phoenix-sample/blob/master/native/rustphxsampleweb_usercontroller/src)
+
+実際に`mix phx.server`をしてサーバーを立てて、curlでAPIを叩いてみます。
+
+```
+$ curl -X POST  -H "Content-Type: application/json" -d '{"user":{"name":"taro", "age":14}}' localhost:4000/user
+{"user":{"age":1,"id":1,"name":"taro"}}
+
+$ curl -X POST  -H "Content-Type: application/json" -d '{"user":{"name":"miho", "age":12}}' localhost:4000/user
+{"user":{"age":1,"id":2,"name":"miho"}}
+```
+しっかりレスポンスが返ってきました。
+
+今回はReadのAPIを立てていないので直接DBを覗きに行くと
+
+```
+diesel_demo=> select * from users;
+ id | name | age
+----+------+-----
+  1 | taro |   14
+  2 | miho |   12
+(2 rows)
+```
+
+ちゃんとWriteされていることがわかります
+
+## Rustlerを使ってみて
+
+RustlerはRust側の関数とElixir側の関数を紐付けるだけでかなりRust側に処理を任せることができることがわかりました。
+Phoenixにルーティングとレスポンスの構築のみを任せて内部の処理を全てRustに置き換えるようなことも実現が可能そうな感じがします。
+
+しかし、やはりElixir/Phoenix側のコードをいじる必要もあるので、Rustだけを知っている人がElixir/Phoenixを利用してErlangVM上でRustを動作させるということは現状少しハードルがある感じがします。
+この辺をうまく吸収し、RustだけでErlangVM上で動作するアプリケーションを作成できるようになればとても面白いと感じました。
+
+Rustlerは現在v0.21.0が最新リリースです。メジャーバージョンが待ち遠しいですね。
+読んでいただきありがとうございました。

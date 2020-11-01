@@ -1,7 +1,6 @@
 ---
 title: "ISUCON10の予選に参加してきました"
 date: 2020-09-13T22:37:54+09:00
-description: 負けたっっ
 draft: false
 author:
  - "さんぽし"

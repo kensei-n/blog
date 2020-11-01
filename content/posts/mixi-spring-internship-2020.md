@@ -1,7 +1,6 @@
 ---
 title: "Dive into mixi GROUP 2020 (春) に参加してきた"
 date: 2020-04-17T22:37:54+09:00
-description: Kubernetes初挑戦の巻
 draft: false
 author:
  - "さんぽし"

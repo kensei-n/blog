@@ -1,7 +1,6 @@
 ---
 title: "Relaymを出展して技育展「Webアプリ」部門で優勝してきた"
 date: 2020-09-27T22:37:54+09:00
-description: 優勝だーワッショーイ！テンションAGEAGEマック
 draft: false
 author:
  - "さんぽし"

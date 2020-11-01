@@ -1,7 +1,6 @@
 ---
 title: "mixiのBug Shooting Challenge #4に参加してきた"
 date: 2020-02-03T22:37:54+09:00
-description: ご飯がうんまうんまだったわね
 draft: false
 author:
  - "さんぽし"

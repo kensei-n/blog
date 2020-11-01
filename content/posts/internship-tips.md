@@ -1,7 +1,6 @@
 ---
 title: "インターン選考を通して感じたtips"
 date: 2020-07-28T22:37:54+09:00
-description: インターン選考が終わったのでそれっぽく語る
 draft: false
 author:
  - "さんぽし"

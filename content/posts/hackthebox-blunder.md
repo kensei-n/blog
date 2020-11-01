@@ -3,7 +3,6 @@ title: "【Hack the Box write-up】Blunder"
 date:  "2020-10-18T15:04:05+07:00"
 author:
   - "さんぽし"
-description: "【Hack the Box write-up】Blunder"
 draft: false
 tags: ["writeup","Hack the Box"]
 categories:
