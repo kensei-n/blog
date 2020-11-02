@@ -1,6 +1,6 @@
 ---
 title: "RustでErlangVM上で動作するWebアプリケーションを開発する"
-date: 2020-10-31T21:11:44+09:00
+date: 2020-11-02T12:11:44+09:00
 draft: false
 author:
  - "さんぽし"
@@ -30,7 +30,7 @@ RustlerはErlang NIFs(Native Implemented Functions)を利用してElixir(Erlang)
 
 [![rusterlium/rustler - GitHub](https://gh-card.dev/repos/rusterlium/rustler.svg)](https://github.com/rusterlium/rustler)
 
-## RustをErlangVM上で動作させると何が嬉しいか
+## Erlang/Elixirの中でRustを呼べると何が嬉しいか
 
 Rust開発者側から見るとErlangVMの恩恵を受けることができる点が一番大きなメリットです。(それはそうという感じですね)
 
@@ -43,7 +43,6 @@ https://elixir-lang.jp/
 
 そんな中でErlangVM上のアプリケーションの開発の選択肢としてRustも入ってくるのはコミュニティにとってもかなり良いことだと感じます(Rustをbeamにコンパイルできるという話ではないのでElixir, Erlangとは完全に別の種別になります。今後Rustler等が発展し開発者から見ればRustのみで開発を行いErlangVMを扱えるという環境になる未来はあるのかもですが、Rust単体でErlangVMを扱えるという話ではないです)
 
-## Erlang/Elixirの中でRustを呼べると何が嬉しいか
 
 そしてElixir側から見たNIFsを利用してRustを使用するメリットとしては(これはNIFs自体のメリットとも言えますが)、実行速度の向上が言われています。
 
