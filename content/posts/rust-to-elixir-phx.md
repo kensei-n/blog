@@ -14,43 +14,50 @@ categories:
 
 こんばんは、さんぽしです
 
-先日このような記事を見かけました。
+僕はElixir好き好き君なのですが、先日以下のような記事を見かけました。
 
 - [Using Rust to Scale Elixir for 11 Million Concurrent Users](https://blog.discord.com/using-rust-to-scale-elixir-for-11-million-concurrent-users-c6f19fc029d3)
 - [Real time communication at scale with Elixir at Discord](https://elixir-lang.org/blog/2020/10/08/real-time-communication-at-scale-with-elixir-at-discord/)
 
-どちらもDiscordはElixirを使ってるよ〜という記事なのですが、詳しく読んでいくと「**Rustler**を用いてErlangVMのNIFsを応用することで一部の処理をRustで書いている」とのことでした。
+どちらも「DiscordはElixirを使ってるよ〜」という内容の記事なのですが、詳しく読んでいくと
+「**Rustler**を用いてErlangVMのNIFsを応用することで一部の処理をRustで書いている」
+とのことでした。
+
+そもそもNIFsって何という詳しい話は以下の公式のページに説明を譲ります
+[8. NIFs - Erlang](http://erlang.org/doc/tutorial/nif.html)
 
 RustlerはErlang NIFs(Native Implemented Functions)を利用してElixir(Erlang)の中でRustの関数をフックできるようにしたライブラリです。
 
-
 [![rusterlium/rustler - GitHub](https://gh-card.dev/repos/rusterlium/rustler.svg)](https://github.com/rusterlium/rustler)
-
-> Rustler is a library for writing Erlang NIFs in safe Rust code. That means there should be no ways to crash the BEAM (Erlang VM). The library provides facilities for generating the boilerplate for interacting with the BEAM, handles encoding and decoding of Erlang terms, and catches rust panics before they unwind into C.
-
-すごく簡単にいうとElixirの中でRustの関数を呼べるよってことです。
-
-> - Safety - The code you write in a Rust NIF should never be able to crash the BEAM.
-> - Interop - Decoding and encoding rust values into Erlang terms is as easy as a function call.
-> - Type composition - Making a Rust struct encodable and decodable to Erlang or Elixir can be done with a single attribute.
-> - Resource objects - Enables you to safely pass a reference to a Rust struct into Erlang code. The struct will be automatically dropped when it's no longer referenced.
-
-NIFsは強力な反面ネイティブな関数がクラッシュした際にErlang VM自体に深刻な影響をもたらす可能性がありますが、そんなNIFsの安全性を高めつつ利用できるのがRustlerです。
 
 ## RustをErlangVM上で動作させると何が嬉しいか
 
-Rust側から見るとErlangVMの恩恵を受けることができる点が一番大きなメリットです。
+Rust開発者側から見るとErlangVMの恩恵を受けることができる点が一番大きなメリットです。(それはそうという感じですね)
 
 > Elixirは、低レイテンシで分散型のフォールトトレラントシステムや、Webや組み込みシステムの領域で成功を収めている、Erlang VMを利用します。
 https://elixir-lang.jp/
 
-これらの強みをRustでまるっといただくことができます。
+ものすごく堅牢と言われるErlangVMのこれらの強みをRustでまるっといただくことができます。
 
-## Elixirの中でRustを呼べると何が嬉しいか
+現状、ある程度の環境が整っていてErlangVMを扱うことができる言語はErlang, Elixirがありますが、Webアプリケーションの開発となるとElixir一択と言ってもいいでしょう。
 
-そしてElixir側から見たNifを利用してRustを使用するメリットとしては(これはNIFs自体のメリットとも言えますが)、実行速度の向上です。
+そんな中でErlangVM上のアプリケーションの開発の選択肢としてRustも入ってくるのはコミュニティにとってもかなり良いことだと感じます(Rustをbeamにコンパイルできるという話ではないのでElixir, Erlangとは完全に別の種別になります。今後Rustler等が発展し開発者から見ればRustのみで開発を行いErlangVMを扱えるという環境になる未来はあるのかもですが、Rust単体でErlangVMを扱えるという話ではないです)
 
-ErlangVMのプロセスの実行はスケジューラーによって全て管理され、それによりErlangVMならではの多くの恩恵を受けていますが、トレードオフとしてその管理の分ネイティブコードの実行よりは当然速度で劣ることになります。この辺りの詳細は以下の記事の前半が参考になります
+## Erlang/Elixirの中でRustを呼べると何が嬉しいか
+
+そしてElixir側から見たNIFsを利用してRustを使用するメリットとしては(これはNIFs自体のメリットとも言えますが)、実行速度の向上が言われています。
+
+しかし、Erlangの"The Seven Myths of Erlang Performance"として、以下が挙げられています
+[2.7  Myth: A NIF Always Speeds Up Your Program](https://erlang.org/doc/efficiency_guide/myths.html#myth--a-nif-always-speeds-up-your-program)
+
+1. NIFで早くなるかは保証できない
+2. 少なくともdangerousにはなる
+3. NIFの関数を呼ぶこと自体や、戻り値や引数をチェックすることの小さなオーバーヘッドがあるから細々とした関数をチマチマ呼ぶとむしろ遅くなったりするかも
+
+なるほど、という感じですね。
+1.に関しては(結局は3と合わせてNIFsの扱い方なんだろうとは思いますが)前述のDiscordの記事も然り、実行速度は早くなるという見方が大勢な気がします。
+
+2に関しては以下の記事が分かりやすかったです
 
 [Writing Rust NIFs for your Elixir code with the Rustler package](https://medium.com/@jacob.lerche/writing-rust-nifs-for-your-elixir-code-with-the-rustler-package-d884a7c0dbe3)
 
@@ -69,11 +76,11 @@ ErlangVMのプロセスの実行はスケジューラーによって全て管理
 
 ---
 
-NIFsの「クラッシュした際にErlang VMに対する影響がやばい」という諸刃の剣の諸刃の部分(?)をRustのメモリ安全性を利用して、安全性を担保することができます。
+NIFsの「クラッシュした際にErlang VMに対する影響がやばい」という諸刃の剣の諸刃の部分(?)をRustのメモリ安全性を利用して、安全面を担保することができます。
 
 ## 実際にRustlerを使ってみる
 
-Rustlerを実際に用いてみて開発の流れを確認してみましょう。今回は簡単なAPIサーバーを作成してみます。
+長い前置きはここまでにして、Rustlerを実際に用いてみて開発の流れを確認してみましょう。今回は簡単なAPIサーバーを作成してみます。
 
 ElixirのデファクトなWebフレームワークであるPhoenixを利用します。
 
@@ -308,7 +315,7 @@ $ mix phx.server
 
 これによってElixirのaddの関数をNIFに置き換えてRustのaddを代わりに実行することができました。
 
-## もう少し本格的なAPIサーバーを実装してみる
+### もう少し本格的なAPIサーバーを実装してみる
 
 ここまででRustlerの雰囲気は掴んでいただけたのではないでしょうか。
 
@@ -428,10 +435,10 @@ diesel_demo=> select * from users;
 ## Rustlerを使ってみて
 
 RustlerはRust側の関数とElixir側の関数を紐付けるだけでかなりRust側に処理を任せることができることがわかりました。
-Phoenixにルーティングとレスポンスの構築のみを任せて内部の処理を全てRustに置き換えるようなことも実現が可能そうな感じがします。
+Phoenixにルーティングとレスポンスの構築のみを任せて内部の処理を全てRustに置き換えるようなことも実現が可能そうな感じがします。まあ、冒頭でもお話ししたようにNIFsは適材適所な面も大きいため、全てをRustに置き換えれればハッピーということもないのかもしれません。
 
-しかし、やはりElixir/Phoenix側のコードをいじる必要もあるので、Rustだけを知っている人がElixir/Phoenixを利用してErlangVM上でRustを動作させるということは現状少しハードルがある感じがします。
-この辺をうまく吸収し、RustだけでErlangVM上で動作するアプリケーションを作成できるようになればとても面白いと感じました。
+やはりElixir/Phoenix側のコードを少なからずいじる必要もあるので、Rustだけを知っている人がElixir/Phoenixを利用してErlangVM上でRustを動作させるということは現状少しハードルがある感じがします。
+この辺をうまく吸収し、RustだけでErlangVM上で動作するアプリケーションを作成できるようになったら面白いかもしれませんね。
 
-Rustlerは現在v0.21.0が最新リリースです。メジャーバージョンが待ち遠しいですね。
+Rustlerは現在v0.21.0が最新リリースです。メジャーバージョンが待ち遠しいです。
 読んでいただきありがとうございました。
