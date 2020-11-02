@@ -1,7 +1,7 @@
 ---
-title: "RustでErlangVM上で動作するWebアプリケーションを作成する"
+title: "RustでErlangVM上で動作するWebアプリケーションを開発する"
 date: 2020-10-31T21:11:44+09:00
-draft: true
+draft: false
 author:
  - "さんぽし"
 tags:
