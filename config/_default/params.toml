@@ -23,10 +23,10 @@ minItemsToShowInTagCloud = 1 # Minimum items to show in tag cloud
 homeHeaderType = "text" # text, img, slide, typewriter
 
 # menu
-showMobileMenuTerms = ["tags", "categories"]
+showMobileMenuTerms = []
 
 # navbar
-enableThemeChange = true # site color theme
+enableThemeChange = false # site color theme
 
 # body
 enableBreadcrumb = true # breadcrumb for list, single page
@@ -48,7 +48,7 @@ whoami = "Web Developer /w Elixir, Go"
 bioImageUrl = "" # image url like "http//..." or "images/anyfoldername/mybioimage.jpg" If not set, we find a avatar image in root/static/images/whoami/avatar.(png|jpg|svg)
 useGravatar = false # we use this option highest priority
 location = "Kyoto, Japan"
-organization = "Kyoto Univ."
+organization = "CAMPHOR-, Kyoto Univ."
 link = ""
 
 # sidebar

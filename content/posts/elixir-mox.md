@@ -4,6 +4,7 @@ date: 2020-11-03T12:55:50+09:00
 draft: true
 ---
 
+
 5年前のJoséのこの記事、みたことがある人も多いのではないでしょうか
 
 [Mocks and explicit contracts](http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/)
@@ -103,3 +104,5 @@ expectしているのに呼び出されていない関数があれば以下の�
 ```
 * expected ExTwitterMock.access_token/2 to be invoked once but it was invoked 0 times
 ```
+
+## 
