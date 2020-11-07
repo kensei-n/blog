@@ -1,4 +1,5 @@
-{{ if and ($.Param "enableSidebarCategories") (ne (len .Site.Taxonomies.categories) 0) }}
+{{ if ($.Param "enableSidebarCategories")  }}
+{{ if  (ne (len .Site.Taxonomies.categories) 0) }}
 <div class="taxo">
     <section>
         <span class="title p2">
@@ -23,4 +24,5 @@
         {{ end }}
     </section>
 </div>
+{{ end }}
 {{ end }}

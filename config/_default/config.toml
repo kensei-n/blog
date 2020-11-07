@@ -1,5 +1,5 @@
 baseURL = "https://sanposhiho.com/" # The URL of your site.
-title = "Hugo Zzo Theme" # Title of your site
+title = "さんぽしの散歩記" # Title of your site
 theme = "zzo" # Name of Zzo theme folder in `themes/`.
 
 defaultContentLanguage = "ja" # Default language to use (if you setup multilingual)
