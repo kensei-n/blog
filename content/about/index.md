@@ -47,6 +47,7 @@ Hack the Box : [@sanposhiho](https://app.hackthebox.eu/profile/247307)
 
 - Docker
 - Kubernetes
+- Helm
 - EKS / ECS
 - CircleCI
 
@@ -74,7 +75,7 @@ Hack the Box : [@sanposhiho](https://app.hackthebox.eu/profile/247307)
 
 ## Akatsuki
 
-### Infra Engineer
+### SRE Engineer
 *2020/09 (1 month)*
 
 - ログ配信フローの改善/開発
@@ -93,10 +94,21 @@ Hack the Box : [@sanposhiho](https://app.hackthebox.eu/profile/247307)
 
 ## Recruit
 
-### Infra Engineer
+### SRE Engineer
 *2020/10 - 2020/11*
 
-comming soon ...
+- デプロイ通知周りの改善
+
+#### 使用技術
+
+- Jenkins
+- ArgoCD
+- Kubernetes
+- Kustomize
+
+#### 関連記事
+
+- comming soon...
 
 
 ---
