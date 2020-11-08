@@ -17,7 +17,7 @@ categories:
 2. [Kustomize](https://github.com/kubernetes-sigs/kustomize)でリソースを管理している
 3. [ArgoCD Resource Hooks](https://argoproj.github.io/argo-cd/user-guide/resource_hooks/)で同じJobを複数のリソースで使用したい
 
-この条件下で2020/11現在で存在する詰まりレベルがかなり高かったので記録として残しておきます
+この条件下で2020/11現在で存在する詰まりbilityがかなり高かったので記録として残しておきます
 
 ## シンプルに実装する
 
