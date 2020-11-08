@@ -1,5 +1,5 @@
 ---
-title: "僕が先週1週間を潰した愉快なissue達を紹介するぜ"
+title: "Kustomizeを利用しているプロジェクトでArgoCD Resource Hooksを用いて複数リソースで同一Jobを使用したいときに詰まるポイント"
 date: 2020-11-08T11:29:13+09:00
 author:
  - "さんぽし"
