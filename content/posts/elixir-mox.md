@@ -1,7 +1,13 @@
 ---
 title: "【Elixir】moxを使用してmock用いたテストを書く"
-date: 2020-11-03T12:55:50+09:00
-draft: true
+date: 2020-11-09T12:55:50+09:00
+author:
+ - "さんぽし"
+tags:
+ - "Elixir"
+ - "Phoenix"
+categories:
+ - "development"
 ---
 
 
@@ -105,4 +111,6 @@ expectしているのに呼び出されていない関数があれば以下の�
 * expected ExTwitterMock.access_token/2 to be invoked once but it was invoked 0 times
 ```
 
-## 
+## 終わりに
+
+Behaviourを使用したモジュール設計をはじめから進めておけばかなりスッと導入できそうですね。
