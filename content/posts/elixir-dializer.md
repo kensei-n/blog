@@ -1,5 +1,5 @@
 ---
-title: "ElixirでDializerを用いた静的解析を行い、型(Typespec)を最大限に活用する"
+title: "ElixirでDialyzerを用いた静的解析を行い、型(Typespec)を最大限に活用する"
 date: 2020-11-10T03:50:09+09:00
 author:
  - "さんぽし"
@@ -17,9 +17,9 @@ Elixirには静的解析ツールのDialyxirというものが存在します
 
 > Mix tasks to simplify use of Dialyzer in Elixir projects.
 
-Dialyzer自体は今年(2020年)の三月にv1.0.0がリリースされた比較的新しいライブラリです。
+Dialyxir自体は今年(2020年)の三月にv1.0.0がリリースされた比較的新しいライブラリです。
 
-Dialyzer は[dialyzer](http://www.erlang.org/doc/man/dialyzer.html)というErlangの静的解析ツールをElixirのmixタスクとしてさくっと実行可能にしたライフラリです。dialyzerを直接Elixirで使用することもできるのですが、いろいろ手順がめんどくさそうだったのですごく助かります
+Dialyxir は[Dialyzer](http://www.erlang.org/doc/man/dialyzer.html)というErlangの静的解析ツールをElixirのmixタスクとしてさくっと実行可能にしたライフラリです。Dialyzerを直接Elixirで使用することもできるのですが、いろいろ手順がめんどくさそうだったのですごく助かります
 
 ## 昨今のトレンド
 
@@ -30,22 +30,22 @@ Dialyzer は[dialyzer](http://www.erlang.org/doc/man/dialyzer.html)というErla
 静的型付け言語ではコンパイル時に多くのエラーをチェックしてくれますね。
 プロダクトが大きくなってくるとコードの変更による影響範囲が大きくなってきます。動的型付けでは予想していなかった部分に変更の影響が出てしまい、「まあ(自分の実装したつもりの範囲は)動いているしヨシ!」とやって気がつかない、みたいなことが起こるかもしれないわけです。(実際はそれをしっかりテスト等で担保して頑張っているわけです)
 
-## dialyxirの概要
+## Dialyzerの概要
 
-Elixirは動的型付け言語です。普通にいくと開発者は型に関与せずプログラミングをすることになります。そこでdialyxirです。
+Elixirは動的型付け言語です。普通にいくと開発者は型に関与せずプログラミングをすることになります。そこでDialyzerです。
 静的解析を行ってかなり詳しい部分まで確認してくれます。
 
-dialyxirはtypespecを利用することで型を利用したチェックまで行うことができ、最大限の力を発揮します
+Dialyzerはtypespecを利用することで型を利用したチェックまで行うことができ、最大限の力を発揮します
 [Typespecs - Elixir](https://hexdocs.pm/elixir/typespecs.html)
 > they're used by tools such as Dialyzer, that can analyze code with typespec to find type inconsistencies and possible bugs
 
 (ちなみにtypespecを使用していないコードに対しても型が関与しない部分で色々確認をしてくれるので、導入する価値があります)
 
-## dialyxirを導入する
+## Dialyxirを導入する
 
 特に大きく作業は発生しません
 
-`mix.exs`にdialyxirの依存を追加します。
+`mix.exs`にDialyxirの依存を追加します。
 
 ```
 defp deps do
@@ -61,9 +61,10 @@ $ mix do deps.get, deps.compile
 ```
 
 これで以下のコードで実行できます
+導入したのがDialyxirなのに実行するのが`mix dialyzer`なのがややこしいですね。Dialyxir経由でDialyzerを使用しているわけなのでこの先ではmixタスク名と合わせて*Dialyzerを使用する*と表現します
 
 ```
-$ mix dialyxir
+$ mix dialyzer
 Compiling 14 files (.ex)
 Generated dialyxir_sample app
 Finding suitable PLTs
@@ -103,7 +104,7 @@ Total errors: 0, Skipped: 0, Unnecessary Skips: 0
 
 初回の実行はかなり時間がかかりますが、一回目以降はさくっと終わります
 
-↑上記では`mix phx.new`したばかりのコードに対してdialyxirを実行しています。当然何のエラーも出ません
+↑上記では`mix phx.new`したばかりのコードに対してDialyzerを実行しています。当然何のエラーも出ません
 
 ## typespecを利用しない静的解析例
 
@@ -137,7 +138,7 @@ defmodule DialyxirSampleWeb.PageController do
 end
 ```
 
-これも特に変な部分もないのでdialyzerで何のエラーも出ません
+これも特に変な部分もないのでDialyzerで何のエラーも出ません
 ここでcontroller側での呼び出しの引数を減らしてみまそう
 
 ```
@@ -152,7 +153,7 @@ defmodule DialyxirSampleWeb.PageController do
 end
 ```
 
-これに対してdialyzerを実行してみると、以下のように怒られが発生します
+これに対してDialyzerを実行してみると、以下のように怒られが発生します
 
 ```
 $ mix dialyzer  
@@ -210,7 +211,7 @@ typespecでintegerを引数として受け取ることを提示します
   result = DialyxirSample.print(1, 1)
 ```
 
-もちろん上記のようにintegerのみを渡すとdialyzerの実行は成功しますが
+もちろん上記のようにintegerのみを渡すとDialyzerの実行は成功しますが
 
 ```
   result = DialyxirSample.print(1, "a")
@@ -259,9 +260,9 @@ Halting VM with exit status 2
 
 しっかり型を利用した静的解析をしてくれていることがわかります
 
-## dialyzerの利用における工夫例
+## Dialyzerの利用における工夫例
 
-dialyzerは常にチェックし続けることに意味があります。
+Dialyzerは常にチェックし続けることに意味があります。
 
 ```
 .PHONY: serve
@@ -275,7 +276,7 @@ test:
 	mix test
 ```
 
-そのため僕のPhoenixプロジェクトでは上記の通りMakefileにて、`mix phx.server`時、`mix test`時に一緒にdialyzerを実行してくれるように良さげにタスクを定義しています
+そのため僕のPhoenixプロジェクトでは上記の通りMakefileにて、`mix phx.server`時、`mix test`時に一緒にDialyzerを実行してくれるように良さげにタスクを定義しています
 
 また、以下の記事を参考にGitHub Actionsにさくっと追加するのも良いと思います(記事のようにうまくキャッシュしないと毎回長時間かかることになるので注意)
 
@@ -283,8 +284,8 @@ test:
 
 ## 終わりに/所感
 
-dialyzerはさくっと導入できる静的解析ツールとしてかなり大きな武器になることを理解していただけたでしょうか。
+Dialyzer/Dialyxirはさくっと導入できる静的解析ツールとしてかなり大きな武器になることを理解していただけたでしょうか。
 
-個人的には、動的型付けオンリーで開発できるプロダクトの規模にはアーキテクチャでうまく境界を引きつつ開発したとしても、限界があると考えています。そのため、新しいElixir(主に大規模になることが予想されるPhoenix)のプロジェクトにおいては、**最初から**dialyzerの導入を積極的に考えるべきです。
+個人的には、動的型付けオンリーで開発できるプロダクトの規模にはアーキテクチャでうまく境界を引きつつ開発したとしても、限界があると考えています。そのため、新しいElixir(主に大規模になることが予想されるPhoenix)のプロジェクトにおいては、**最初から**Dialyzer/Dialyxirの導入を積極的に考えるべきです。
 
-皆さんもdialyzerを使って良き静的解析ライフを！
+皆さんもDialyzerを使って良き静的解析ライフを！
