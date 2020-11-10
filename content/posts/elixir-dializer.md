@@ -61,7 +61,7 @@ $ mix do deps.get, deps.compile
 ```
 
 これで以下のコードで実行できます
-導入したのがDialyxirなのに実行するのが`mix dialyzer`なのがややこしいですね。Dialyxir経由でDialyzerを使用しているわけなのでこの先ではmixタスク名と合わせて*Dialyzerを使用する*と表現します
+導入したのがDialyxirなのに実行するのが`mix dialyzer`なのがややこしいですね。Dialyxir経由でDialyzerを使用しているわけなのでこの先ではmixタスク名と合わせて *Dialyzerを使用する* と表現します
 
 ```
 $ mix dialyzer
