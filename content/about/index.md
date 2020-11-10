@@ -156,7 +156,7 @@ Spotifyの楽曲を1つのスピーカーで楽しめるWebアプリケーショ
 - Elixir / Phoenixに対するコントリビュートの経験があります
 - [Elixirに関連する記事](/tags/elixir/)もいくつか書いてます
 
-### 🧸 Golang ⭐️⭐️
+### 🧸 Go ⭐️⭐️
 
 - インターンなどでの使用経験があります
 - 幾つかの[静的解析ツール](/showcase/tools/)の開発を行いました
@@ -167,9 +167,10 @@ Spotifyの楽曲を1つのスピーカーで楽しめるWebアプリケーショ
 - 殆どのマシンで[writeup](/tags/writeup/)も書いてます
 - [CheatSheet](https://github.com/sanposhiho/MY_CHEAT_SHEET)も書いてます
 
-### Python, Ruby (on Rails) ⭐️
+### Others ⭐️
+**Python, Ruby (on Rails)**
 
-### Docker, Kubernetes, AWS, GCP, CircleCI, Github Actions ⭐️
+**Docker, Kubernetes, AWS, GCP, CircleCI, ArgoCD, Github Actions**
 
 ---
 

@@ -17,7 +17,7 @@ Elixirには静的解析ツールのDialyxirというものが存在します
 
 > Mix tasks to simplify use of Dialyzer in Elixir projects.
 
-Dialyzer自体は今年(2020年)の三月にv1.0.0がリリースされた新しいライブラリです。
+Dialyzer自体は今年(2020年)の三月にv1.0.0がリリースされた比較的新しいライブラリです。
 
 Dialyzer は[dialyzer](http://www.erlang.org/doc/man/dialyzer.html)というErlangの静的解析ツールをElixirのmixタスクとしてさくっと実行可能にしたライフラリです。dialyzerを直接Elixirで使用することもできるのですが、いろいろ手順がめんどくさそうだったのですごく助かります
 
