@@ -6,7 +6,7 @@ draft: true
 
 こんにちは
 
-10/5 - 11/13 で**RECRUIT Job for Student 2020 ~Engineer/Data Specialist~**に参加していました。
+10/5 - 11/13 で**RECRUIT Job for Student 2020 \~Engineer/Data Specialist\~**に参加していました。
 
 [RECRUIT Job for Student 2020 ~Engineer/Data Specialist~](https://engineers.recruit-jinji.jp/event/job-for-student-2020s/)
 
@@ -16,7 +16,7 @@ draft: true
 
 ## 待遇とか
 
-↑のページに詳しく載っていますが、リンクがもしかすると切れるかもしれないので残しておくと、
+↑のページに詳しく載っていますが、
 
 - 時給2000円
 - 交通費/宿泊費
@@ -50,3 +50,31 @@ draft: true
 
 Jenkins/ArgoCDのデプロイ通知の改善を行いました。
 
+現状はArgoCDのsyncの完了の通知を出しておらず、ArgoCDのダッシュボードを見に行かないと完了しているかわからない、syncの失敗にもすぐに気がつけない、と言った問題がありました。
+
+ArgoCD Resource Hooksと言うPreSync(syncの実行前)やPostSync(sync完了)、SyncFail(sync失敗)などのsyncに関するイベントを検知してJobを実行することができる機能を用いて、Slack通知を実現しました。
+Resource Hooksの公式の例としてもSlackへの通知を送るサンプルが記載されています。
+
+[ArgoCD - Resource Hooks](https://argoproj.github.io/argo-cd/user-guide/resource_hooks/)
+
+実行されるimageではArgoCDのApplication Controllerを利用してArgoCDのリソースの状態を取得しています。現在syncされた(もしくはsyncに失敗した)リソースのrevisionを取得することや、今までのsyncの履歴なども取得することができます。そのためリソースの状態に応じたかなり自由度の高い動作をさせることが可能になります。
+
+[ArgoCD - Application Controller](https://argoproj.github.io/argo-cd/operator-manual/architecture/#application-controller)
+
+今回はrevisionからGitHubAPIを通してAuthorを取得し、SlackAPIを通してAuthorに対するメンションを行うという流れで通知を行いました
+
+## つまりポイント
+
+この記事の内容で1週間近く進捗が無でした
+
+[Kustomizeを利用しているプロジェクトでArgoCD Resource Hooksを用いて複数リソースで同一Jobを使用したいときに詰まるポイント](/posts/argocd-kustomize-bug/)
+
+## 終わりに
+
+今回1.5ヶ月/週3.5日と言う期間で学校と並列してかなり自由に勤務させていただきとても助かりました🙏
+かなりモダンなCI/CD環境の整っている中で多くのことを学べました。短い間でしたがお世話になりました！！
+
+以下で部署の方の記事が出ているので気になる人はチェックしてみてください👀
+
+- [スタディサプリENGLISHの基盤をECSからEKSに移行しました](https://tech.recruit-mp.co.jp/infrastructure/post-20706/)
+- [Amazon EKSでのArgoCDを使ったGitOps CD](https://tech.recruit-mp.co.jp/infrastructure/gitops-cd-by-using-argo-cd-at-eks/)
