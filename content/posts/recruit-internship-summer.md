@@ -12,7 +12,7 @@ draft: true
 
 僕はスタディサプリEnglish SREチームに配属されました。
 
-基本オンラインでの勤務で、僕は週3.5日出社という形でした。途中学校の用事などで抜けたりと、かなり自由に勤務をさせてもらいました。
+基本オンラインでの勤務で、僕は週3.5日出社という形でした。割と頻繁に学校の用事などで抜けたりと、かなり自由に勤務をさせてもらいました。
 
 ## 待遇とか
 
@@ -24,13 +24,13 @@ draft: true
 - 食事代
 
 が出ました。
-めちゃんめちゃん豪華ですね
+めちゃんめちゃん豪華です
 
 オンラインなので交通費/宿泊費？と思われるかもしれませんが、希望する人は色々制限付きですが数日出社日を設けることができ、その際の費用と言った感じです。
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">2日間現地出社マンでした <a href="https://t.co/RoggMQUoMH">pic.twitter.com/RoggMQUoMH</a></p>&mdash; さんぽし (@sanpo_shiho) <a href="https://twitter.com/sanpo_shiho/status/1317050059528179712?ref_src=twsrc%5Etfw">October 16, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-スタディサプリEnglishは新しめのオフィスですごくきれいでした。
+スタディサプリENGLISHは新しめのオフィスですごくきれいでした。
 
 また、記載がありませんが、技術書補助と一緒に在宅勤務補助(上限2万円)ももらう事ができました
 
@@ -57,7 +57,9 @@ Resource Hooksの公式の例としてもSlackへの通知を送るサンプル�
 
 [ArgoCD - Resource Hooks](https://argoproj.github.io/argo-cd/user-guide/resource_hooks/)
 
-実行されるimageではArgoCDのApplication Controllerを利用してArgoCDのリソースの状態を取得しています。現在syncされた(もしくはsyncに失敗した)リソースのrevisionを取得することや、今までのsyncの履歴なども取得することができます。そのためリソースの状態に応じたかなり自由度の高い動作をさせることが可能になります。
+今回は自前でGoで実装を行った通知用のコンテナを実行します。
+
+実行されるコンテナではArgoCDのApplication Controllerを利用してArgoCDのリソースの状態を取得しています。現在syncされた(もしくはsyncに失敗した)リソースのrevisionを取得することや、今までのsyncの履歴なども取得することができます。そのためリソースの状態に応じたかなり自由度の高い動作をさせることが可能になります。
 
 [ArgoCD - Application Controller](https://argoproj.github.io/argo-cd/operator-manual/architecture/#application-controller)
 
@@ -72,7 +74,8 @@ Resource Hooksの公式の例としてもSlackへの通知を送るサンプル�
 ## 終わりに
 
 今回1.5ヶ月/週3.5日と言う期間で学校と並列してかなり自由に勤務させていただきとても助かりました🙏
-かなりモダンなCI/CD環境の整っている中で多くのことを学べました。短い間でしたがお世話になりました！！
+
+モダンなCI/CD環境の整っている中で多くのことを学べました。短い間でしたがお世話になりました！！
 
 以下で部署の方の記事が出ているので気になる人はチェックしてみてください👀
 
